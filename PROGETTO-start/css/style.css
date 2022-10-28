@@ -1,0 +1,173 @@
+* {
+    font-family: 'Lexend', sans-serif;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    background-color: rgba(77, 117, 13, 0.925);
+    border: 2px solid #dbcd0adc;
+}
+
+.text-center {
+    text-align: center;
+    border-top: none;
+}
+
+.icon-grid {
+/* flex! */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #364303;
+}
+
+.show {
+/* visibilità e opacità */
+    visibility: visible;
+}
+
+#griglia>div {
+    /* dimensioni e margini */
+    margin: 20px 10px;
+    width: 120px;
+    height: 120px;
+    background-color: #dbcd0adc;
+    border: 2px solid #364303;
+    border-radius: 10px;
+    
+}
+#griglia>div:hover{
+    border: 2px solid #dbcd0adc;
+    background-color: #364303;
+}
+
+.timer {
+    padding: 10px 0;
+    color: #dbcd0adc;
+    font-size: xx-large;
+}
+
+.icon {
+    font-size: 80px;
+    text-align: center;
+    visibility: visible !important;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: wait;
+}
+
+.show {
+    /* agganciare animation-name rotazione carta */
+    animation-name: rotazione-carta;
+    opacity: 100;
+    animation-duration: .5s;
+    background-color: white;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+}
+
+.find {
+    /* agganciare animation-name indovinato */
+    animation-name: indovinato;
+    animation-duration: .5s;
+    background-color: rgba(247, 212, 16, 0.56);
+    border: 1px solid #485802;
+    border-radius: 10px;
+}
+
+.button {
+    color: #2e4c02;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #dbcd0adc;
+    border: 2px solid #4b6104;
+    border-radius: 5px;
+}
+
+.button:hover {
+    color: white;
+    background-color: #2e4c02;
+    border: 2px solid #dbcd0adc;;
+}
+
+#modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#modal.active {
+    display: flex;
+}
+
+#modal h2 {
+    margin-top: 20px;
+}
+
+@media (max-width: 919px) {
+    .container {
+        width: 400px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 70px;
+        height: 70px;
+    }
+    .icon {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 230px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 40px;
+        height: 40px;
+    }
+    .icon {
+        font-size: 20px;
+    }
+}
+
+@keyframes indovinato { /* animazione quando si indovina */
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotazione-carta { /* animazione quando ruota la carta */
+    from {
+        transform: rotateY(0deg);
+	    animation-timing-function: ease-in;
+    }
+    50% {
+        transform: rotateY(90deg);
+	    animation-timing-function: ease-in;
+    }
+    to {
+        transform: rotateY(180deg);
+	    animation-timing-function: ease-in;
+    }
+}
